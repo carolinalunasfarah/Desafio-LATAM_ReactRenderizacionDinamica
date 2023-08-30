@@ -17,9 +17,11 @@ function App() {
 
     return (
         <>
-            <List />
-            <CollabForm setAlert={setAlert} />
-            {alert.msg && <Alert color={alert.color}>{alert.msg}</Alert>}
+            <main>
+                <List />
+                <CollabForm setAlert={setAlert} />
+                {alert.msg && <Alert color={alert.color}>{alert.msg}</Alert>}
+            </main>
         </>
     );
 }

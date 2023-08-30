@@ -49,6 +49,7 @@ const CollabForm = ({ setAlert }) => {
     return (
         <>
             <form className="collaboratorsForm" onSubmit={validateData}>
+                <h2>Add a collaborator</h2>
                 <Form.Group className="mb-3" controlId="formName">
                     <Form.Control
                         type="text"
