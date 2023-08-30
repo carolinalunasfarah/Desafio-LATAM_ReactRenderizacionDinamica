@@ -1,7 +1,16 @@
 import Table from "react-bootstrap/Table";
-import { collaboratorsDatabase } from "../CollaboratorsDatabase";
 
-const List = () => {
+const List = ({ data }) => {
+    const collaborators = data.map((collaborator) => (
+        <tr key={collaborator.id}>
+            <td>{collaborator.name}</td>
+            <td>{collaborator.email}</td>
+            <td>{collaborator.age}</td>
+            <td>{collaborator.position}</td>
+            <td>{collaborator.phone}</td>
+        </tr>
+    ));
+
     return (
         <>
             <section>
@@ -15,15 +24,7 @@ const List = () => {
                             <th>Phone</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>{collaboratorsDatabase.name}</td>
-                            <td>{collaboratorsDatabase.email}</td>
-                            <td>{collaboratorsDatabase.age}</td>
-                            <td>{collaboratorsDatabase.position}</td>
-                            <td>{collaboratorsDatabase.phone}</td>
-                        </tr>
-                    </tbody>
+                    <tbody>{collaborators}</tbody>
                 </Table>
             </section>
         </>

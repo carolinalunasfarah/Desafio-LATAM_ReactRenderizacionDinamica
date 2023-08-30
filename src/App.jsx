@@ -10,6 +10,7 @@ import Alert from "./assets/components/Alert";
 import Finder from "./assets/components/Finder";
 
 function App() {
+    const [data, setData] = useState(collaboratorsDatabase);
     const [alert, setAlert] = useState({
         error: "",
         msg: "",
@@ -21,7 +22,7 @@ function App() {
             <main>
                 <section className="finderList">
                     <Finder />
-                    <List />
+                    <List data={data} />
                 </section>
                 <section>
                     <CollabForm setAlert={setAlert} />
