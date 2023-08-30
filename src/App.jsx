@@ -7,6 +7,7 @@ import { collaboratorsDatabase } from "./assets/CollaboratorsDatabase";
 import List from "./assets/components/List";
 import CollabForm from "./assets/components/CollabForm";
 import Alert from "./assets/components/Alert";
+import Finder from "./assets/components/Finder";
 
 function App() {
     const [alert, setAlert] = useState({
@@ -18,9 +19,16 @@ function App() {
     return (
         <>
             <main>
-                <List />
-                <CollabForm setAlert={setAlert} />
-                {alert.msg && <Alert color={alert.color}>{alert.msg}</Alert>}
+                <section className="finderList">
+                    <Finder />
+                    <List />
+                </section>
+                <section>
+                    <CollabForm setAlert={setAlert} />
+                    {alert.msg && (
+                        <Alert color={alert.color}>{alert.msg}</Alert>
+                    )}
+                </section>
             </main>
         </>
     );
