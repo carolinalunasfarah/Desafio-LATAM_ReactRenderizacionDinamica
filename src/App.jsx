@@ -37,10 +37,10 @@ function App() {
                 <section>
                     <CollabForm
                         setAlert={setAlert}
-                        data={data}
-                        setData={setData}
-                        filteredData={filteredData}
-                        setfilteredData={setFilteredData}
+                        // data={data}
+                        // setData={setData}
+                        // filteredData={filteredData}
+                        // setfilteredData={setFilteredData}
                     />
                     {alert.msg && (
                         <Alert color={alert.color}>{alert.msg}</Alert>

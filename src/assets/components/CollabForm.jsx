@@ -4,10 +4,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const CollabForm = ({
-    data,
-    setData,
-    filteredData,
-    setFilteredData,
+    // data,
+    // setData,
+    // filteredData,
+    // setFilteredData,
     setAlert,
 }) => {
     // form states
@@ -32,6 +32,14 @@ const CollabForm = ({
         if (formClone) {
             setFormData({ ...formData, [formClone]: e.target.value });
         }
+
+        setData({
+            name: "formData.name",
+            email: "formData.email",
+            age: "formData.age",
+            position: "formData.position",
+            phone: "formData.phone",
+        });
     };
 
     // data validation
@@ -41,7 +49,6 @@ const CollabForm = ({
         // regular expressions for email and phone validation
         const regexEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
         const regexTelef = /^[0-9]{9}$/;
-
 
         if (
             formData.name.trim() === "" ||
@@ -55,7 +62,6 @@ const CollabForm = ({
                 msg: "You need to enter all data",
                 color: "danger",
             });
-
         else if (!regexEmail.test(formData.email)) {
             setAlert({
                 error: true,
