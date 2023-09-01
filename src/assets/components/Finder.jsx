@@ -1,8 +1,30 @@
-const Finder = () => {
+const Finder = ({ data, filteredData }) => {
+    const inputFilter = (e) => {
+        const findWord = e.target.value.toLowerCase();
+
+        const filterResp = data.filter(
+            (collaborator) =>
+                collaborator.name.toLowerCase().includes(findWord) ||
+                collaborator.email.toLowerCase().includes(findWord) ||
+                collaborator.age.includes(findWord) ||
+                collaborator.position.toLowerCase().includes(findWord) ||
+                collaborator.phone.includes(findWord)
+        );
+
+        filteredData(filterResp);
+    };
+
     return (
         <>
-            <h1>Collaborators List</h1>
-            <input type="text" placeholder="Find collaborator" />
+            <section>
+                <input
+                    type="text"
+                    name="finder"
+                    id="finder"
+                    placeholder="Find a collaborator"
+                    onChange={inputFilter}
+                />
+            </section>
         </>
     );
 };

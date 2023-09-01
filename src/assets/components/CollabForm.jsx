@@ -3,7 +3,13 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const CollabForm = ({ setAlert }) => {
+const CollabForm = ({
+    data,
+    setData,
+    filteredData,
+    setFilteredData,
+    setAlert,
+}) => {
     // form states
     const [formData, setFormData] = useState({
         name: "",
@@ -13,25 +19,83 @@ const CollabForm = ({ setAlert }) => {
         phone: "",
     });
 
+    const handleChange = (e) => {
+        const formId = {
+            formName: "name",
+            formEmail: "email",
+            formAge: "age",
+            formPosition: "position",
+            formPhone: "phone",
+        };
+
+        const formClone = formId[e.target.id];
+        if (formClone) {
+            setFormData({ ...formData, [formClone]: e.target.value });
+        }
+    };
+
     // data validation
     const validateData = (e) => {
         e.preventDefault();
 
-        const { name, email, age, position, phone } = formData;
-        const validateFormGroups =
-            !name || !email || !age || !position || !phone;
+        // regular expressions for email and phone validation
+        const regexEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+        const regexTelef = /^[0-9]{9}$/;
 
-        validateFormGroups
-            ? setAlert({
-                  error: true,
-                  msg: "You need to enter all data",
-                  color: "danger",
-              })
-            : setAlert({
-                  error: false,
-                  msg: "You successfully add a new collaborator",
-                  color: "success",
-              });
+        if (
+            formData.name.trim() === "" ||
+            formData.email() === "" ||
+            formData.age() === "" ||
+            formData.position.trim() === "" ||
+            formData.phone === ""
+        ) {
+            setAlert({
+                error: true,
+                msg: "You need to enter all data",
+                color: "danger",
+            });
+        } else if (!regexEmail.test(formData.email)) {
+            setAlert({
+                error: true,
+                msg: "Email is invalid",
+                color: "danger",
+            });
+        } else if (!regexTelef.test(formData.phone)) {
+            setAlert({
+                error: true,
+                msg: "Phone is invalid",
+                color: "danger",
+            });
+        }
+
+        // const { name, email, age, position, phone } = formData;
+        // const validateFormGroups =
+        //     !name.trim || !email || !age || !position.trim || !phone;
+
+        // validateFormGroups
+        //     ? setAlert({
+        //           error: true,
+        //           msg: "You need to enter all data",
+        //           color: "danger",
+        //       })
+        //     : setAlert({
+        //           error: false,
+        //           msg: "You successfully add a new collaborator",
+        //           color: "success",
+        //       });
+
+        // const validations = !regexEmail.test(formData.email);
+        // validations
+        //     ? setAlert({
+        //           error: true,
+        //           msg: "This is an invalid mail",
+        //           color: "danger",
+        //       })
+        //     : setAlert({
+        //           error: false,
+        //           msg: "",
+        //           color: "",
+        //       });
 
         setFormData({
             name: "",
@@ -40,10 +104,14 @@ const CollabForm = ({ setAlert }) => {
             position: "",
             phone: "",
         });
-    };
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setData({
+            name: "",
+            email: "",
+            age: "",
+            position: "",
+            phone: "",
+        });
     };
 
     return (
@@ -53,7 +121,7 @@ const CollabForm = ({ setAlert }) => {
                 <Form.Group className="mb-3" controlId="formName">
                     <Form.Control
                         type="text"
-                        name="name"
+                        id="formName"
                         placeholder="Collaborator name"
                         onChange={handleChange}
                         value={formData.name}
@@ -62,7 +130,7 @@ const CollabForm = ({ setAlert }) => {
                 <Form.Group className="mb-3" controlId="formEmail">
                     <Form.Control
                         type="email"
-                        name="email"
+                        id="formEmail"
                         placeholder="Collaborator email"
                         onChange={handleChange}
                         value={formData.email}
@@ -70,8 +138,8 @@ const CollabForm = ({ setAlert }) => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formAge">
                     <Form.Control
-                        type="text"
-                        name="age"
+                        type="number"
+                        id="formAge"
                         placeholder="Collaborator age"
                         onChange={handleChange}
                         value={formData.age}
@@ -80,7 +148,7 @@ const CollabForm = ({ setAlert }) => {
                 <Form.Group className="mb-3" controlId="formPosition">
                     <Form.Control
                         type="text"
-                        name="position"
+                        id="formPosition"
                         placeholder="Collaborator position"
                         onChange={handleChange}
                         value={formData.position}
@@ -89,7 +157,7 @@ const CollabForm = ({ setAlert }) => {
                 <Form.Group className="mb-3" controlId="formPhone">
                     <Form.Control
                         type="text"
-                        name="phone"
+                        id="formPhone"
                         placeholder="Collaborator phone"
                         onChange={handleChange}
                         value={formData.phone}
