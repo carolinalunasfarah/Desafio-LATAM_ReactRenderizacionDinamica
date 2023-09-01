@@ -1,18 +1,19 @@
 import Table from "react-bootstrap/Table";
 
-const List = ({ data, setData, filteredData, setFilteredData }) => {
-    const deleteCollaborator = (id) => {
-        const newData = [...data].filter(
-            (collaborator) => collaborator.id !== id
-        );
-        setData(newData);
+const List = ({ filteredData }) => {
+    // const List = ({ data, setData, filteredData, setFilteredData }) => {
+    // const deleteCollaborator = (id) => {
+    //     const newData = [...data].filter(
+    //         (collaborator) => collaborator.id !== id
+    //     );
+    //     setData(newData);
 
-        const newDatafilter = [...filteredData].filter(
-            (collaborator) => collaborator.id !== id
-        );
-        setFilteredData(newDatafilter);
+    //     const newDatafilter = [...filteredData].filter(
+    //         (collaborator) => collaborator.id !== id
+    //     );
+    //     setFilteredData(newDatafilter);
+    // };
 
-    };
     const collaborators = filteredData.map((collaborator) => (
         <tr key={collaborator.id}>
             <td>{collaborator.id}</td>
@@ -21,11 +22,11 @@ const List = ({ data, setData, filteredData, setFilteredData }) => {
             <td>{collaborator.age}</td>
             <td>{collaborator.position}</td>
             <td>{collaborator.phone}</td>
-            <td>
+            {/* <td>
                 <i
                     className="fa-solid fa-trash-can"
                     onClick={() => deleteCollaborator(collaborator.id)}></i>
-            </td>
+            </td> */}
         </tr>
     ));
 
@@ -41,7 +42,7 @@ const List = ({ data, setData, filteredData, setFilteredData }) => {
                             <th>Age</th>
                             <th>Position</th>
                             <th>Phone</th>
-                            <th>Delete</th>
+                            {/* <th>Delete</th> */}
                         </tr>
                     </thead>
                     <tbody>{collaborators}</tbody>
