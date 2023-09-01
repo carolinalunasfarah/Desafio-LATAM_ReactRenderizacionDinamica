@@ -11,6 +11,7 @@ const List = ({ data, setData, filteredData, setFilteredData }) => {
             (collaborator) => collaborator.id !== id
         );
         setFilteredData(newDatafilter);
+
     };
     const collaborators = filteredData.map((collaborator) => (
         <tr key={collaborator.id}>
