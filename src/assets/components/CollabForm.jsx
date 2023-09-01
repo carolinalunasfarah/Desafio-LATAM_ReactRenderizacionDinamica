@@ -1,13 +1,12 @@
 import { useState } from "react";
 
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 
 const CollabForm = ({
-    // data,
-    // setData,
-    // filteredData,
-    // setFilteredData,
+    data,
+    setData,
+    filteredData,
+    setFilteredData,
     setAlert,
 }) => {
     // form states
@@ -32,14 +31,6 @@ const CollabForm = ({
         if (formClone) {
             setFormData({ ...formData, [formClone]: e.target.value });
         }
-
-        setData({
-            name: "formData.name",
-            email: "formData.email",
-            age: "formData.age",
-            position: "formData.position",
-            phone: "formData.phone",
-        });
     };
 
     // data validation
@@ -80,66 +71,73 @@ const CollabForm = ({
                 msg: "You successfully add a collaborator",
                 color: "success",
             });
-        }
 
-        setFormData({
-            name: "",
-            email: "",
-            age: "",
-            position: "",
-            phone: "",
-        });
+            const newId = data.lenght
+                ? parseInt(data[data.lenght - 1].id) + 1
+                : "1";
+
+            setData([...data, { ...formData, id: newId }]);
+            setFilteredData([...filteredData, { ...formData, id: newId }]);
+
+            setFormData({
+                name: "",
+                email: "",
+                age: "",
+                position: "",
+                phone: "",
+            });
+        }
     };
 
     return (
         <>
             <form className="collaboratorsForm" onSubmit={validateData}>
                 <h2>Add a collaborator</h2>
-                <Form.Group className="mb-3">
-                    <Form.Control
+                <div className="mb-3">
+                    <input
                         type="text"
                         id="formName"
                         placeholder="Collaborator name"
                         onChange={handleChange}
                         value={formData.name}
                     />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Control
+                </div>
+                <div className="mb-3">
+                    <input
                         type="email"
                         id="formEmail"
                         placeholder="Collaborator email"
                         onChange={handleChange}
                         value={formData.email}
                     />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Control
+                </div>
+                <div className="mb-3">
+                    <input
                         type="number"
                         id="formAge"
                         placeholder="Collaborator age"
                         onChange={handleChange}
                         value={formData.age}
                     />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Control
+                </div>
+                <div className="mb-3">
+                    <input
                         type="text"
                         id="formPosition"
                         placeholder="Collaborator position"
                         onChange={handleChange}
                         value={formData.position}
                     />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Control
+                </div>
+                <div className="mb-3">
+                    <input
                         type="text"
                         id="formPhone"
                         placeholder="Collaborator phone"
                         onChange={handleChange}
                         value={formData.phone}
                     />
-                </Form.Group>
+                </div>
                 <Button
                     variant="warning"
                     size="lg"
