@@ -24,7 +24,7 @@ function App() {
                 <h1>Collaborators List</h1>
                 <section className="finderList">
                     <Finder
-                        data={filteredData}
+                        data={filteredData} //we need to use filteredData
                         filteredData={setFilteredData}
                     />
                     <List

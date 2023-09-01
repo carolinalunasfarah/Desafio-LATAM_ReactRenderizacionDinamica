@@ -42,19 +42,21 @@ const CollabForm = ({
         const regexEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
         const regexTelef = /^[0-9]{9}$/;
 
+
         if (
             formData.name.trim() === "" ||
-            formData.email() === "" ||
-            formData.age() === "" ||
+            formData.email === "" ||
+            formData.age === "" ||
             formData.position.trim() === "" ||
             formData.phone === ""
-        ) {
+        )
             setAlert({
                 error: true,
                 msg: "You need to enter all data",
                 color: "danger",
             });
-        } else if (!regexEmail.test(formData.email)) {
+
+        else if (!regexEmail.test(formData.email)) {
             setAlert({
                 error: true,
                 msg: "Email is invalid",
@@ -66,46 +68,15 @@ const CollabForm = ({
                 msg: "Phone is invalid",
                 color: "danger",
             });
+        } else {
+            setAlert({
+                error: false,
+                msg: "You successfully add a collaborator",
+                color: "success",
+            });
         }
 
-        // const { name, email, age, position, phone } = formData;
-        // const validateFormGroups =
-        //     !name.trim || !email || !age || !position.trim || !phone;
-
-        // validateFormGroups
-        //     ? setAlert({
-        //           error: true,
-        //           msg: "You need to enter all data",
-        //           color: "danger",
-        //       })
-        //     : setAlert({
-        //           error: false,
-        //           msg: "You successfully add a new collaborator",
-        //           color: "success",
-        //       });
-
-        // const validations = !regexEmail.test(formData.email);
-        // validations
-        //     ? setAlert({
-        //           error: true,
-        //           msg: "This is an invalid mail",
-        //           color: "danger",
-        //       })
-        //     : setAlert({
-        //           error: false,
-        //           msg: "",
-        //           color: "",
-        //       });
-
         setFormData({
-            name: "",
-            email: "",
-            age: "",
-            position: "",
-            phone: "",
-        });
-
-        setData({
             name: "",
             email: "",
             age: "",
@@ -118,7 +89,7 @@ const CollabForm = ({
         <>
             <form className="collaboratorsForm" onSubmit={validateData}>
                 <h2>Add a collaborator</h2>
-                <Form.Group className="mb-3" controlId="formName">
+                <Form.Group className="mb-3">
                     <Form.Control
                         type="text"
                         id="formName"
@@ -127,7 +98,7 @@ const CollabForm = ({
                         value={formData.name}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formEmail">
+                <Form.Group className="mb-3">
                     <Form.Control
                         type="email"
                         id="formEmail"
@@ -136,7 +107,7 @@ const CollabForm = ({
                         value={formData.email}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formAge">
+                <Form.Group className="mb-3">
                     <Form.Control
                         type="number"
                         id="formAge"
@@ -145,7 +116,7 @@ const CollabForm = ({
                         value={formData.age}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formPosition">
+                <Form.Group className="mb-3">
                     <Form.Control
                         type="text"
                         id="formPosition"
@@ -154,7 +125,7 @@ const CollabForm = ({
                         value={formData.position}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formPhone">
+                <Form.Group className="mb-3">
                     <Form.Control
                         type="text"
                         id="formPhone"
