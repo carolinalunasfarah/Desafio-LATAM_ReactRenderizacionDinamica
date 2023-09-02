@@ -78,7 +78,6 @@ const CollabForm = ({
 
             setData([...data, { ...formData, id: newId }]);
             setFilteredData([...filteredData, { ...formData, id: newId }]);
-            console.log(filteredData);
 
             setFormData({
                 name: "",

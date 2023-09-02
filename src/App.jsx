@@ -24,14 +24,14 @@ function App() {
                 <h1>Collaborators List</h1>
                 <section className="finderList">
                     <Finder
-                        data={filteredData} //we need to use filteredData
+                        data={filteredData}
                         filteredData={setFilteredData}
                     />
                     <List
                         data={data}
                         setData={setData}
                         filteredData={filteredData}
-                        setfilteredData={setFilteredData}
+                        setFilteredData={setFilteredData}
                     />
                 </section>
                 <section>
@@ -40,7 +40,7 @@ function App() {
                         data={data}
                         setData={setData}
                         filteredData={filteredData}
-                        setfilteredData={setFilteredData}
+                        setFilteredData={setFilteredData}
                     />
                     {alert.msg && (
                         <Alert color={alert.color}>{alert.msg}</Alert>
