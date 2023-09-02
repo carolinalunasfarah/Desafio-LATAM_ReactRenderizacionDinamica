@@ -20,8 +20,10 @@ function App() {
 
     return (
         <>
+            <header>
+                <h1 className="titleSection">Collaborators List</h1>
+            </header>
             <main>
-                <h1>Collaborators List</h1>
                 <section className="finderList">
                     <Finder
                         data={filteredData}

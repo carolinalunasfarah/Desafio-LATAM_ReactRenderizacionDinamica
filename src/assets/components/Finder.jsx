@@ -16,7 +16,7 @@ const Finder = ({ data, filteredData }) => {
 
     return (
         <>
-            <section>
+            <section className="finderSection">
                 <input
                     type="text"
                     name="finder"

@@ -1,10 +1,16 @@
 #root {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100%;
     text-align: center;
     padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+}
+header:hover {
+    cursor: pointer;
 }
 
 main {
@@ -13,8 +19,34 @@ main {
     align-items: center;
 }
 
-h2:hover {
-    cursor: none;
+.finderSection {
+    padding: 2rem;
+}
+#finder {
+    width: 20rem;
+    height: 2.5rem;
+    font-size: 20px;
+    border-radius: 10rem;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+#finder:hover {
+    background-color: rgba(108, 30, 160, 0.5);
+    transition: ease 2s;
+    color: white;
+}
+
+.fa-trash-can {
+    color: white;
+}
+.fa-trash-can:hover {
+    color: red;
+    transform: scale(1.5);
+    transition: ease 1.5s;
+    cursor: pointer;
+}
+
+.collaboratorsForm {
+    min-width: 10rem;
 }
 
 .submitBtn:hover {

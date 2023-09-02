@@ -1,6 +1,5 @@
 import Table from "react-bootstrap/Table";
 
-// const List = ({ filteredData }) => {
 const List = ({ data, setData, filteredData, setFilteredData }) => {
     const deleteCollaborator = (id) => {
         const newData = [...data].filter(
@@ -32,8 +31,10 @@ const List = ({ data, setData, filteredData, setFilteredData }) => {
 
     return (
         <>
-            <section>
-                <Table striped bordered hover>
+            <section className="listSection table-responsive">
+                <Table
+                    variant="dark"
+                    className="table table-dark table-striped table-bordered align-middle">
                     <thead>
                         <tr>
                             <th>Id</th>
