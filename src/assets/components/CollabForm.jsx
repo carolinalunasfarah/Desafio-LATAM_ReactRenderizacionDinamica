@@ -72,8 +72,8 @@ const CollabForm = ({
                 color: "success",
             });
 
-            const newId = data.lenght
-                ? parseInt(data[data.lenght - 1].id) + 1
+            const newId = data.length
+                ? parseInt(data[data.length - 1].id) + 1
                 : "1";
 
             setData([...data, { ...formData, id: newId }]);
