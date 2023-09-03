@@ -21,14 +21,16 @@ function App() {
     return (
         <>
             <header>
-                <h1 className="titleSection">Collaborators List</h1>
-            </header>
-            <main>
-                <section className="finderList">
+                <h1>Collaborators List</h1>
+                <section>
                     <Finder
                         data={filteredData}
                         filteredData={setFilteredData}
                     />
+                </section>
+            </header>
+            <main>
+                <section>
                     <List
                         data={data}
                         setData={setData}

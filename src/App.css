@@ -7,7 +7,12 @@
 header {
     display: flex;
     justify-content: center;
-    align-items: right;
+    flex-direction: column;
+    align-items: flex-start;
+}
+h1 {
+    margin-left: 1rem;
+    font-family: 'Signika Negative', sans-serif;
 }
 header:hover {
     cursor: pointer;
@@ -16,44 +21,54 @@ header:hover {
 main {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
+    margin: 0rem 1rem;
 }
 
 .finderSection {
-    padding: 2rem;
+    padding: 1rem 0rem 2rem 1rem;
 }
 #finder {
     width: 20rem;
     height: 2.5rem;
     font-size: 20px;
     border-radius: 10rem;
-    background-color: rgba(0, 0, 0, 0.15);
 }
 #finder:hover {
-    background-color: rgba(108, 30, 160, 0.5);
-    transition: ease 2s;
-    color: white;
+    background-color: rgba(108, 30, 160, 0.2);
+    transition: ease 3s;
+    color: black;
+}
+.fa-arrows-rotate {
+    margin-left: 1rem;
+    font-size: 24px;
+    color: green;
 }
 
+.listSection {
+    width: 50rem;
+}
 .fa-trash-can {
-    color: white;
+    color: red;
 }
 .fa-trash-can:hover {
-    color: red;
     transform: scale(1.5);
     transition: ease 1.5s;
     cursor: pointer;
 }
 
-.collaboratorsForm {
-    min-width: 10rem;
+#formName,
+#formEmail,
+#formAge,
+#formPosition,
+#formPhone {
+    width: 20rem;
 }
 
 .submitBtn:hover {
     transform: scale(1.25);
     transition: ease 2s;
 }
-
 .alertDisplay {
     margin-top: 1rem;
     height: 2rem;

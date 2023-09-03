@@ -31,10 +31,9 @@ const List = ({ data, setData, filteredData, setFilteredData }) => {
 
     return (
         <>
-            <section className="listSection table-responsive">
+            <section className="table-responsive listSection">
                 <Table
-                    variant="dark"
-                    className="table table-dark table-striped table-bordered align-middle">
+                    className="table table-secondary table-striped table-bordered align-middle">
                     <thead>
                         <tr>
                             <th>Id</th>

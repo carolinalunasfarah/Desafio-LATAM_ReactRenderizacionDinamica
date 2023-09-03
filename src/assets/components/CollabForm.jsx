@@ -77,7 +77,7 @@ const CollabForm = ({
                 : "1";
 
             setData([...data, { ...formData, id: newId }]);
-            setFilteredData([...data, { ...formData, id: newId }]);
+            setFilteredData([...filteredData, { ...formData, id: newId }]);
 
             setFormData({
                 name: "",
@@ -92,7 +92,7 @@ const CollabForm = ({
     return (
         <>
             <form className="collaboratorsForm" onSubmit={validateData}>
-                <h3>Add a collaborator</h3>
+                <h3 className="mb-3">Add a collaborator</h3>
                 <div className="mb-3">
                     <input
                         type="text"
