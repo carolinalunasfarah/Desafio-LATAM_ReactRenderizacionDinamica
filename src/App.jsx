@@ -24,7 +24,7 @@ function App() {
                 <h1>Collaborators List</h1>
                 <section>
                     <Finder
-                        data={filteredData}
+                        data={data}
                         filteredData={setFilteredData}
                     />
                 </section>
