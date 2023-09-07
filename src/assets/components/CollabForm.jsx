@@ -2,13 +2,7 @@ import { useState } from "react";
 
 import Button from "react-bootstrap/Button";
 
-const CollabForm = ({
-    data,
-    setData,
-    filteredData,
-    setFilteredData,
-    setAlert,
-}) => {
+const CollabForm = ({ data, setData, setFilteredData, setAlert }) => {
     // form states
     const [formData, setFormData] = useState({
         name: "",

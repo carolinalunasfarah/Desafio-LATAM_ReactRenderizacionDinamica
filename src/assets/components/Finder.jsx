@@ -13,9 +13,7 @@ const Finder = ({ data, filteredData }) => {
 
         filteredData(filterResp);
     };
-    function refreshPage() {
-        window.location.reload(false);
-    }
+
 
     return (
         <>
@@ -27,9 +25,6 @@ const Finder = ({ data, filteredData }) => {
                     placeholder="Find a collaborator"
                     onChange={inputFilter}
                 />
-                <i
-                    className="fa-solid fa-arrows-rotate"
-                    onClick={refreshPage}></i>
             </section>
         </>
     );
